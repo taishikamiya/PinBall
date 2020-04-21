@@ -59,16 +59,16 @@ public class FripperController : MonoBehaviour {
                 {
                     SetAngle(this.flickAngle);
                 }
-                //離れた時
-                if (t.phase == TouchPhase.Ended && tag == "LeftFripperTag")
+                //左を離した時 エリア判定追加20200421
+                if (t.phase == TouchPhase.Ended && t.position.x < Screen.width / 2 && tag == "LeftFripperTag")
                 {
                     SetAngle(this.defaultAngle);
                 }
-                if (t.phase == TouchPhase.Ended && tag == "RightFripperTag")
+                //右を離した時 エリア判定追加20200421
+                if (t.phase == TouchPhase.Ended && t.position.x >= Screen.width / 2 && tag == "RightFripperTag")
                 {
                     SetAngle(this.defaultAngle);
                 }
-
             }
         }
 
